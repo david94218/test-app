@@ -1,0 +1,47 @@
+<button type="button" class="btn btn-primary" (click)="isCollapsed1 = !isCollapsed1"
+          [attr.aria-expanded]="!isCollapsed1" aria-controls="collapseBasic">More than 1000 likes
+  </button>
+  <div id="collapseBasic" class="collapseStyle" [collapse]="isCollapsed1" [isAnimated]="true">
+    <div class="col-xs-12"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="100"
+    (scrolled)="onScroll1()"
+    >
+      <div class="col-xs-4" *ngFor="let image of imageList1">
+        <img src="{{image.webformatURL}}" *ngIf="image.show == true" alt="first slide" class="imageList">
+      </div>
+    </div>
+  </div><br>
+
+  <button type="button" class="btn btn-primary" (click)="isCollapsed2 = !isCollapsed2"
+          [attr.aria-expanded]="!isCollapsed2" aria-controls="collapseBasic">Between 500 and 1000 likes
+  </button>
+  <div id="collapseBasic" class="collapseStyle" [collapse]="isCollapsed2" [isAnimated]="true">
+    <div class="col-xs-12"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="100"
+    (scrolled)="onScroll2()"
+    >
+      <div class="col-xs-4" *ngFor="let image of imageList2">
+        <img src="{{image.webformatURL}}" *ngIf="image.show == true" alt="first slide" class="imageList">
+      </div>
+    </div>
+  </div><br>
+
+  <button type="button" class="btn btn-primary" (click)="isCollapsed3 = !isCollapsed3"
+          [attr.aria-expanded]="!isCollapsed3" aria-controls="collapseBasic">Less than 500 likes
+  </button>
+  <div id="collapseBasic" class="collapseStyle" [collapse]="isCollapsed3" [isAnimated]="true">
+    <div class="col-xs-12"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="100"
+    (scrolled)="onScroll3()"
+    >
+      <div class="col-xs-4" *ngFor="let image of imageList3">
+        <img src="{{image.webformatURL}}" *ngIf="image.show == true" alt="first slide" class="imageList">
+      </div>
+    </div>
+  </div>

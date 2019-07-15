@@ -1,0 +1,23 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">{{selectedFolder}}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+  <div class="main-panel">
+    <div
+      infiniteScroll
+      [infiniteScrollDistance]="2"
+      [infiniteScrollThrottle]="100"
+      [infiniteScrollContainer]="selector"
+      [fromRoot]="true"
+      (scrolled)="onScroll()"
+    >
+      <div *ngFor="let image of images">
+        <img src="{{image.webformatURL}}" *ngIf="image.show == true" alt="first slide" style="display: block; width: 100%;">
+      </div>
+    </div>
+  </div>
+</div>
+

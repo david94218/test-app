@@ -1,0 +1,17 @@
+
+<div class="modal-header">
+    <h4 class="modal-title pull-left">{{openedModalName}}</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef2.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+</div>
+<div class="modal-body text-center">
+  <div *ngFor="let folder of newFolderList">
+    <carousel *ngIf="folder.folderName == openedModalName">
+        <slide *ngFor="let image of folder.images">
+          <img src="{{image.webformatURL}}" alt="first slide" style="display: block; width: 100%;">
+        </slide>
+      </carousel>
+  </div>
+  <button type="button" class="btn btn-primary margin" aria-label="Close" (click)="deleteNewFolder(openedModalName)">Delete folder</button>
+</div>

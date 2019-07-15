@@ -1,0 +1,6 @@
+<div>
+  <app-mode (output)="modeName=$event"></app-mode>
+  <app-date></app-date>
+  <app-folder [modeName]="modeName"></app-folder>
+</div>
+<router-outlet></router-outlet>

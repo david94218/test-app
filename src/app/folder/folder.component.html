@@ -1,0 +1,45 @@
+<div class="col-xs-12" *ngIf="modeName == 'Album Mode'">
+  <div *ngFor="let folder of folders">
+    <div class="col-xs-4">
+      <button type="button" class="btn btn-primary btn-lg" (click)="selectFolder(template, folder.name)">{{folder.name}}</button>
+    </div>
+  </div>
+
+  <div *ngFor="let folder of newFolderList">
+    <div class="col-xs-4">
+      <button type="button" class="btn btn-primary btn-lg" (click)="openFolder(imageFolderModal, folder.folderName)">{{folder.folderName}}</button>
+    </div>
+  </div>
+</div>
+
+<div class="margin">
+  <input class="search" [(ngModel)]="searchQuery"
+    name="search" placeholder="Search for images">
+  <br>
+  <button (click)="searchImages(searchQuery)"
+  class="searchButton" type="button">Find Images</button>
+</div>
+
+<div *ngIf="modeName == 'Album Mode'">
+  <button type="button" class="btn btn-primary margin" (click)="newFolder(newFolderModal)">Add Folder</button>
+  <button type="button" class="btn btn-primary margin" (click)="clearAddedList()">Clear added image list</button>
+  <app-album-mode-list [addedImageList]="addedImageList" [images]="images" [imageIndex]="imageIndex"></app-album-mode-list>
+</div>
+
+<div *ngIf="modeName == 'Like Mode'">
+  <app-like-mode-list [images]="images" [imageList1]="imageList1" [imageList2]="imageList2" [imageList3]="imageList3"></app-like-mode-list>
+</div>
+ 
+<ng-template #template>
+    <app-images [selectedFolder]="selectedFolder" [modalRef]="modalRef"></app-images>
+</ng-template>
+
+<ng-template #newFolderModal>
+    <app-new-folder [addedImageList]="addedImageList" [newFolderList]="newFolderList" [newFolderName]="newFolderName" [modalRef1]="modalRef1"></app-new-folder>
+</ng-template>
+
+<ng-template #imageFolderModal>
+    <app-user-define-folder [newFolderList]="newFolderList" [openedModalName]="openedModalName" [modalRef2]="modalRef2"></app-user-define-folder>
+</ng-template>
+
+  

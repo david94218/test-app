@@ -1,0 +1,12 @@
+<div class="col-xs-12"
+infiniteScroll
+[infiniteScrollDistance]="2"
+[infiniteScrollThrottle]="500"
+(scrolled)="onScroll()"
+>
+    <div class="col-xs-4" *ngFor="let image of images">
+      <button class="searchButton glyphicon glyphicon-plus addToFolder" (click)="addAndRemove(image, 'add')" type="button" *ngIf="!image.added && image.show == true"></button>
+      <button class="searchButton glyphicon glyphicon-minus addToFolder" (click)="addAndRemove(image, 'remove')" type="button" *ngIf="image.added && image.show == true"></button>
+      <img src="{{image.webformatURL}}" *ngIf="image.show == true" alt="first slide" class="imageList">
+    </div>
+</div>
